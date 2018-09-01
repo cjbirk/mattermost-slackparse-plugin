@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/subtle"
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	"github.com/mattermost/mattermost-server/model"
