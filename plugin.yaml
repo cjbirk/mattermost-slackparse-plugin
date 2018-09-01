@@ -1,4 +1,4 @@
 id: com.mattermost.server-hello-world
 name: Server "Hello, world!"
 server:
-    executable: plugin.go
+    executable: plugin
