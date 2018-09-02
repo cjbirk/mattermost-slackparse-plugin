@@ -1,4 +1,4 @@
-id: com.mattermost.server-hello-world
-name: Server "Hello, world!"
+id: com.mattermost.slackparse-plugin
+name: Server "SlackParse Tester"
 server:
     executable: plugin
