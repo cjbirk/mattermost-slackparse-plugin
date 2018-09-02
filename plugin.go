@@ -1,12 +1,11 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-
+	"github.com/mattermost/mattermost-server/model"
 	"github.com/mattermost/mattermost-server/plugin"
 )
 
+// Plugin yadda yadda
 type Plugin struct {
 	plugin.MattermostPlugin
 	Enabled bool
@@ -18,17 +17,9 @@ func (p *Plugin) OnActivate() error {
 	return nil
 }
 
-// Test
-type HelloWorldPlugin struct {
-	plugin.MattermostPlugin
-}
-
-func (p *HelloWorldPlugin) ServeHTTP(c *plugin.Context, w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello, world!")
-}
-
-// This example demonstrates a plugin that handles HTTP requests which respond by greeting the
-// world.
-func main() {
-	plugin.ClientMain(&HelloWorldPlugin{})
+// MessageWillBePosted is invoked when a message is posted by a user before it is commited
+// to the database.
+func (p *Plugin) MessageWillBePosted(c *plugin.Context, post *model.Post) (*model.Post, string) {
+	model.SlackAttachment()
+	return nil
 }
