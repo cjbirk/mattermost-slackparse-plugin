@@ -30,13 +30,11 @@ func (p *Plugin) FilterPost(post *model.Post) (*model.Post, string) {
 	if post.Type == model.POST_SLACK_ATTACHMENT {
 		p.API.LogDebug("HE'S JUST A POOR BOY")
 		attachments, _ := post.Props["attachments"].([]*model.SlackAttachment)
-		//var newAttachment *model.SlackAttachment
-		//newAttachment = attachments[0]
-		//for attachment := range attachments {
-		//	if attachment
-		//}
 		p.API.LogDebug("FROM A POOR", "FAMILY::::", attachments)
-		model.ParseSlackAttachment(post, []*model.SlackAttachment{attachments})
+		// Let's change the color of the attachment to make sure our thing is
+		// the one processing
+		attachments[0].Color = "#FF0000"
+		model.ParseSlackAttachment(post, attachments)
 	}
 
 	return post, ""
