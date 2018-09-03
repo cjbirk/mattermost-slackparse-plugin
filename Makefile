@@ -1,3 +1,5 @@
+redo: clean plugin
+
 plugin:
 	go build -o plugin plugin.go
 	tar -czvf plugin.tar.gz plugin plugin.yaml
